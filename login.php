@@ -5,8 +5,8 @@ if(isset($_POST['submit']))
 {
   if($_POST['submit']=="login")
   { 
-        $username=$_POST['login_username'];
-        $password=$_POST['login_password'];
+        $username=mysqli_real_escape_string($con,$_POST['login_username']);
+        $password=mysqli_real_escape_string($con,$_POST['login_password']);
         $query = "SELECT * from users where UserName ='$username' AND Password='$password'";
         $result = mysqli_query($con,$query)or die(mysql_error());
         if(mysqli_num_rows($result) > 0)

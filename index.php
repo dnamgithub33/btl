@@ -16,8 +16,8 @@ if (isset($_GET['response'])) {
 
 if (isset($_POST['submit'])) {
     if ($_POST['submit'] == "login") {
-        $username = $_POST['login_username'];
-        $password = $_POST['login_password'];
+        $username = mysqli_real_escape_string($con,$_POST['login_username']);
+        $password = mysqli_real_escape_string($con,$_POST['login_password']);
         $query = "SELECT * from users where UserName ='$username' AND Password='$password'";
         $result = mysqli_query($con, $query) or die(mysql_error());
         if (mysqli_num_rows($result) > 0) {
@@ -33,8 +33,10 @@ if (isset($_POST['submit'])) {
                   ';
         }
     } else if ($_POST['submit'] == "register") {
-        $username = $_POST['register_username'];
-        $password = $_POST['register_password'];
+        $username = mysqli_real_escape_string($con,$_POST['register_username']);
+        $password = mysqli_real_escape_string($con,$_POST['register_password']);
+        $mail = mysqli_real_escape_string($con,$_POST['register_mail']);
+        $phone = mysqli_real_escape_string($con,$_POST['register_phone']);
         $query = "select * from users where UserName = '$username'";
         $result = mysqli_query($con, $query) or die(mysql_error);
         if (mysqli_num_rows($result) > 0) {
@@ -43,7 +45,7 @@ if (isset($_POST['submit'])) {
                     ';
 
         } else {
-            $query = "INSERT INTO users VALUES ('$username','$password')";
+            $query = "INSERT INTO users VALUES ('$username','$password','$mail','$phone')";
             $result = mysqli_query($con, $query);
             print '
                 <script type="text/javascript">
@@ -197,6 +199,14 @@ if (isset($_POST['submit'])) {
                                             <div class="form-group">
                                                 <label class="sr-only" for="password">Password</label>
                                                 <input type="password" name="register_password" class="form-control"  placeholder="Password" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="mail">Mail</label>
+                                                <input type="text" name="register_mail" class="form-control"  placeholder="Mail" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="sr-only" for="phone">Phone</label>
+                                                <input type="text" name="register_phone" class="form-control"  placeholder="Phone" required>
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" name="submit" value="register" class="btn btn-block">

@@ -17,7 +17,7 @@ if (isset($_GET['place'])) {
 <?php
 }
 if (isset($_GET['remove'])) {
-    $product = $_GET['remove'];
+    $product = mysqli_real_escape_string($con,$_GET['remove']);
     $query = "DELETE FROM cart where Customer='$customer' AND Product='$product'";
     $result = mysqli_query($con, $query);
     ?>
