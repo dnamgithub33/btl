@@ -182,6 +182,7 @@ if (!isset($_SESSION['user']))
                 while ($row = mysqli_fetch_assoc($result)) {
                     $path = "img/books/" . $row['PID'] . ".jpg";
                     $description = "description.php?ID=" . $row["PID"];
+
                     if ($i % 3 == 0)
                         $offset = 0;
                     else
@@ -195,6 +196,7 @@ if (!isset($_SESSION['user']))
                         <img class="book block-center img-responsive" src="' . $path . '">
                         <hr>
                          ' . $row["Title"] . '<br>
+                         
                         ' . $row["Price"] . '  &nbsp
                         <span style="text-decoration:line-through;color:#828282;"> ' . $row["MRP"] . ' </span>
                         <span class="label label-warning">' . $row["Discount"] . '%</span>
