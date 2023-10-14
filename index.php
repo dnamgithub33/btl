@@ -27,6 +27,8 @@ if (isset($_POST['submit'])) {
             print '
                 <script type="text/javascript">alert("successfully logged in!!!");</script>
                   ';
+            if($_SESSION['user']=="admin")
+                header('location:admin.php');
         } else {
             print '
               <script type="text/javascript">alert("Incorrect Username Or Password!!");</script>

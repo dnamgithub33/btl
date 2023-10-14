@@ -5,7 +5,7 @@ if (!isset($_SESSION['user']))
 include "dbconnect.php";
 $customer = $_SESSION['user'];
 if (isset($_POST['submit-comment'])) {
-  $keyword = mysqli_real_escape_string($con,$_POST['submit-comment']);
+  $keyword = $_POST['submit-comment'];
   $PID = $_GET['ID'];
   $query = "INSERT INTO comment_product (UserName, PID, Comment) VALUES ('$customer', '$PID', '$keyword')";
   $result = mysqli_query($con, $query) or die(mysql_error);
