@@ -174,8 +174,8 @@ if (isset($_POST["submit_product"])) {
             <label for="Price">Price:</label>
             <input type="number" name="Price" id="Price" step="any" required>
     
-            <label for="Discout">Discout:</label>
-            <input type="number" name="Discout" id="Discout" step="1" required>
+            <label for="Discount">Discount:</label>
+            <input type="number" name="Discount" id="Discount" step="1" required>
     
             <label for="Available">Available:</label>
             <input type="number" name="Available" id="Available" step="1" required>
