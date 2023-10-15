@@ -254,6 +254,16 @@ if (isset($_POST["submit_product"])) {
                                 <td><?php echo $value['Password']; ?></td>
                                 <td><?php echo $value['Mail']; ?></td>
                                 <td><?php echo $value['Phone']; ?></td>
+                                <td>
+                                    <button class="button">
+                                        <a href="delete.php?uname=<?php echo $value['UserName']; ?>" class="text-light">Delete</a>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="button">
+                                        <a href="cart_show.php?uname=<?php echo $value['UserName']; ?>" class="text-light">Cart</a>
+                                    </button>
+                                </td>
                             </tr>
                             <?php
                         }

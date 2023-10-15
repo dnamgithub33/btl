@@ -24,11 +24,15 @@ if (isset($_POST['submit'])) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['user'] = $row['UserName'];
             $_SESSION['password'] = $row['Password'];
+            if($username=="admin"){
+                header('location:admin.php');
+            }
+
+            else {
             print '
                 <script type="text/javascript">alert("successfully logged in!!!");</script>
                   ';
-            if($_SESSION['user']=="admin")
-                header('location:admin.php');
+            }
         } else {
             print '
               <script type="text/javascript">alert("Incorrect Username Or Password!!");</script>
