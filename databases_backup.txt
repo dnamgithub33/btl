@@ -281,10 +281,7 @@ INSERT INTO `users` (`UserName`, `Password`, `Mail`, `Phone`) VALUES
 ('rakhi', 'gupta','keith45@example.org','0676543210'),
 ('saurabh', 'saha','jacksonjustin@example.net','0912345678'),
 ('suyashgulati', 's19','antoine.rey@example.com','0101234567'),
-('B21DCAT135', 'dangquynam','ricardus.segers@example.com','0898765432'),
-('B21DCAT005', 'nguyenquanghuy','jasao.lopes@example.com','0234567891'),
-('B21DCAT018', 'khucthixuanquynh', 'sabrina.ribeiro@example.com','0876543210'),
-('B21DCAT075', 'nguyenhuonggiang', 'cameron.ward@example.com','0876543210');
+('admin', '1234567890','ricardus.segers@example.com','0898765432'),
 
 
 
